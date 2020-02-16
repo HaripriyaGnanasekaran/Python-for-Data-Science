@@ -1,7 +1,7 @@
 
 # Data Science
-My small projects on Data Science and Machine Learning.
+While self teaching Data Sciene to myself, I created this repository. As a process I developed many jupyter notebooks as class notes. Some of them are easy to read. Feel free to contribute or edit the mistakes in the notebooks. 
 
 
 Contains:
-* Python basics for Data science
+* Python tutorials (for applications to Data Science and AI)
