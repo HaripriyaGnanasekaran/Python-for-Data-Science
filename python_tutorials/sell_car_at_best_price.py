@@ -1,10 +1,15 @@
+"""
+This is a python public module to predict the best price of cars.
+
+However, this is not always possible to do so.
+"""
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import sys
 
-
+print(sys.version)
 # import sales car data here.
 
 print("Importing data from the website")
