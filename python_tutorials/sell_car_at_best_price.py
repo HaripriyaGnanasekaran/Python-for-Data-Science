@@ -36,6 +36,3 @@ df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'
 # data Visualization
 plt.hist(x=df['price'], bins=3)
 plt.show()
-
-for num in [1, 2, 3, 5]:
-    print(num)
