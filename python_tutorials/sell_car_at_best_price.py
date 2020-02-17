@@ -36,3 +36,9 @@ df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'
 # data Visualization
 # plt.hist(x=df['price'], bins=3)
 # plt.show()
+
+# explorative data analysis
+statistics = df.describe()
+statistics.to_csv('./descriptivestatistics.csv')
+drivewheel = df['drive-wheels'].value_counts()
+drivewheel.rename(columns={'drive_wheels': 'value-counts'}, inplace=True)
