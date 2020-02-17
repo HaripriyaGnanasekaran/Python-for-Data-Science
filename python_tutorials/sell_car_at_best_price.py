@@ -32,8 +32,10 @@ df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower', 'peak-rpm']
 
 
 # data normalizations.
-df['city-mpg'] = 235/df['city-mpg']  # converts miles per gallon to liter per 100km
-df.rename(columns={'city-mpg': 'city-lp100km'}, inplace=True)
+df['city-mpg'] = 0.425144*df['city-mpg']  # converts miles per gallon to liter per 100km
+df['highway-mpg'] = 0.425144*df['highway-mpg']
+df.rename(columns={'city-mpg': 'city-kpl'}, inplace=True)
+df.rename(columns={'highway-mpg': 'highway-kpl'}, inplace=True)
 df['length'] = (df['length']-df['length'].min())/(df['length'].max()-df['length'].min())
 df['length'] = (df['width']-df['width'].min())/(df['width'].max()-df['width'].min())
 df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'].min())
@@ -54,11 +56,15 @@ df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'
 # plt.show()
 
 # group data and make heat plot
-dfgrp = df[['drive-wheels', 'body-style', 'price']]
-dfgrp = dfgrp.groupby(['drive-wheels', 'body-style'], as_index=False).mean()
-dfpiv = dfgrp.pivot(index='drive-wheels', columns='body-style')
-fig, ax = plt.subplots(figsize=(10, 10))
-sns.heatmap(dfpiv, cmap='RdBu', annot=True, ax=ax)
+# dfgrp = df[['drive-wheels', 'body-style', 'price']]
+# dfgrp = dfgrp.groupby(['drive-wheels', 'body-style'], as_index=False).mean()
+# dfpiv = dfgrp.pivot(index='drive-wheels', columns='body-style')
+# fig, ax = plt.subplots(figsize=(10, 10))
+# sns.heatmap(dfpiv, cmap='RdBu', annot=True, ax=ax)
+# plt.show()
+
+sns.regplot(x='highway-kpl', y='price', data=df)
+plt.ylim(0,)
 plt.show()
 
 # explorative data analysis
