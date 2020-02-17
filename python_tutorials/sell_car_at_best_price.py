@@ -1,7 +1,7 @@
 """
-This is a python public module to predict the best price of cars.
+This is a python public module to predict the best selling price for used cars.
 
-However, this is not always possible to do so.
+However, we are still currently working on the module.
 """
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -41,7 +41,16 @@ df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'
 # data Visualization
 # plt.hist(x=df['price'], bins=3)
 # plt.show()
+plt.title = 'Scatter plot of Drive wheel location vs the Price.'
+plt.xlabel = 'Drive Wheels'
+plt.ylabel = 'Price'
 sns.boxplot(x='drive-wheels', y='price', data=df)
+plt.show()
+
+plt.title = 'Scatter plot of Engine size vs the Price.'
+plt.xlabel = 'Enine Size'
+plt.ylabel = 'Price'
+plt.scatter(x=df['engine-size'], y=df['price'])
 plt.show()
 
 # explorative data analysis
