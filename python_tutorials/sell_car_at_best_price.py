@@ -27,12 +27,12 @@ df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower', 'peak-rpm']
 
 
 # data normalizations.
-df['city-mpg'] = 235/df['city-mpg']
+df['city-mpg'] = 235/df['city-mpg']  # converts miles per gallon to liter per 100km
 df.rename(columns={'city-mpg': 'city-lp100km'}, inplace=True)
 df['length'] = (df['length']-df['length'].min())/(df['length'].max()-df['length'].min())
 df['length'] = (df['width']-df['width'].min())/(df['width'].max()-df['width'].min())
 df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'].min())
 
 # data Visualization
-plt.hist(x=df['price'], bins=3)
-plt.show()
+# plt.hist(x=df['price'], bins=3)
+# plt.show()
