@@ -41,16 +41,24 @@ df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'
 # data Visualization
 # plt.hist(x=df['price'], bins=3)
 # plt.show()
-plt.title = 'Scatter plot of Drive wheel location vs the Price.'
-plt.xlabel = 'Drive Wheels'
-plt.ylabel = 'Price'
-sns.boxplot(x='drive-wheels', y='price', data=df)
-plt.show()
+# plt.title = 'Scatter plot of Drive wheel location vs the Price.'
+# plt.xlabel = 'Drive Wheels'
+# plt.ylabel = 'Price'
+# sns.boxplot(x='drive-wheels', y='price', data=df)
+# plt.show()
 
-plt.title = 'Scatter plot of Engine size vs the Price.'
-plt.xlabel = 'Enine Size'
-plt.ylabel = 'Price'
-plt.scatter(x=df['engine-size'], y=df['price'])
+# plt.title = 'Scatter plot of Engine size vs the Price.'
+# plt.xlabel = 'Engine Size'
+# plt.ylabel = 'Price'
+# plt.scatter(x=df['engine-size'], y=df['price'])
+# plt.show()
+
+# group data and make heat plot
+dfgrp = df[['drive-wheels', 'body-style', 'price']]
+dfgrp = dfgrp.groupby(['drive-wheels', 'body-style'], as_index=False).mean()
+dfpiv = dfgrp.pivot(index='drive-wheels', columns='body-style')
+fig, ax = plt.subplots(figsize=(10, 10))
+sns.heatmap(dfpiv, cmap='RdBu', annot=True, ax=ax)
 plt.show()
 
 # explorative data analysis
