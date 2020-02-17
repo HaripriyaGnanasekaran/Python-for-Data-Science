@@ -1,4 +1,4 @@
-import seaborn as sbn
+import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -36,6 +36,8 @@ df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'
 # data Visualization
 # plt.hist(x=df['price'], bins=3)
 # plt.show()
+sns.boxplot(x='drive-wheels', y='price', data=df)
+plt.show()
 
 # explorative data analysis
 statistics = df.describe()
