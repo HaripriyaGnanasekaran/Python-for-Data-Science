@@ -13,14 +13,15 @@ print(sys.version)
 # import sales car data here.
 
 print("Importing data from the website")
-path = 'https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data'
+path = 'https://archive.ics.uci.edu/ml/machine-learning-databases/autos/ \
+        imports-85.data'
 df = pd.read_csv(path, header=None)
 header = ['symboling', 'normalized-losses', 'make', 'fuel-type', 'aspiration',
           'number-of-doors', 'body-style', 'drive-wheels', 'engine-location',
-          'wheel-base', 'length', 'width', 'height', 'curb-weight', 'engine-type',
-          'number-of-cylinders', 'engine-size', 'feul-system', 'bore', 'stroke',
-          'compression-ration', 'horsepower', 'peak-rpm', 'city-mpg', 'highway-mpg',
-          'price']
+          'wheel-base', 'length', 'width', 'height', 'curb-weight',
+          'engine-type', 'number-of-cylinders', 'engine-size', 'feul-system',
+          'bore', 'stroke', 'compression-ration', 'horsepower', 'peak-rpm',
+          'city-mpg', 'highway-mpg', 'price']
 df.columns = header
 
 # data preparation
@@ -28,17 +29,25 @@ df.replace('?', np.NaN, inplace=True)
 df.dropna(axis=0, inplace=True)
 df.reset_index(drop=True, inplace=True)
 df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower', 'peak-rpm']
-   ] = df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower', 'peak-rpm']].astype(float)
+   ] = df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower',
+           'peak-rpm']].astype(float)
 
 
 # data normalizations.
-df['city-mpg'] = 0.425144*df['city-mpg']  # converts miles per gallon to liter per 100km
+
+# convert miles per gallon to liters per km
+df['city-mpg'] = 0.425144*df['city-mpg']
 df['highway-mpg'] = 0.425144*df['highway-mpg']
 df.rename(columns={'city-mpg': 'city-kpl'}, inplace=True)
 df.rename(columns={'highway-mpg': 'highway-kpl'}, inplace=True)
-df['length'] = (df['length']-df['length'].min())/(df['length'].max()-df['length'].min())
-df['length'] = (df['width']-df['width'].min())/(df['width'].max()-df['width'].min())
-df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'].min())
+
+# min-max normalizations
+df['length'] = (df['length']-df['length'].min()) / \
+    (df['length'].max()-df['length'].min())
+df['length'] = (df['width']-df['width'].min()) / \
+    (df['width'].max()-df['width'].min())
+df['height'] = (df['height']-df['height'].min()) / \
+    (df['height'].max()-df['height'].min())
 
 # data Visualization
 # plt.hist(x=df['price'], bins=3)
