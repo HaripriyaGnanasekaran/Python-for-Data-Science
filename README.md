@@ -7,13 +7,18 @@ In future, all my own works related to machine learning and AI will be deposited
 Can we make an model to predict the necessary shots to be played by a player after analyzing the recorded video until first break?
 Can we make a model to predict the win and loss percentage based on the shots played and increment in win/loss ratio if the advice based on shots are followed?
 
+
+#### Current project
+##### Predict the price of car from its attributes.
+
 #### Analytical approach
-Probably we need to combine unsupervised learning with decision tree classification.
-Combine tools like Linear regression to see correlation and choose the important atribute.
+Data of used car prices were analyzed using the python script. Below you see a correlation heat map showing the important attributes contributing towards the price.
 
-![Correlation heatmap](https://github.com/RamanathanVaradharajan/assets/blob/master/predict_car_price/figure_6.png)
+![correlation map](https://github.com/RamanathanVaradharajan/Python-for-Data-Science/blob/master/assets/figure_6.png)
 
-#### More to come in future ....
+A multiple regression techniques will be used to make a prediction of the price. Work in progress...
+
+##### More to come in future ....
 
 
 
