@@ -14,9 +14,9 @@ Can we make a model to predict the win and loss percentage based on the shots pl
 #### Analytical approach
 Data of used car prices were analyzed using the python script. Below you see a correlation heat map showing the important attributes contributing towards the price.
 
-![correlation map](https://github.com/RamanathanVaradharajan/Python-for-Data-Science/blob/master/assets/figure_6.png)
-
 A multiple regression techniques will be used to make a prediction of the price. Work in progress...
+
+<img src="https://github.com/RamanathanVaradharajan/Python-for-Data-Science/blob/master/assets/websiteimage.png" alt="Workflow" width="500" height="500">
 
 ##### More to come in future ....
 
