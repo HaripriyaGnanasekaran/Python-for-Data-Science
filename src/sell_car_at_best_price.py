@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import sys
+from sklearn.linear_model import LinearRegression
 
 print(sys.version)
 # import sales car data here.
@@ -17,10 +18,10 @@ path = 'https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-
 df = pd.read_csv(path, header=None)
 header = ['symboling', 'normalized-losses', 'make', 'fuel-type', 'aspiration',
           'number-of-doors', 'body-style', 'drive-wheels', 'engine-location',
-          'wheel-base', 'length', 'width', 'height', 'curb-weight', 'engine-type',
-          'number-of-cylinders', 'engine-size', 'feul-system', 'bore', 'stroke',
-          'compression-ration', 'horsepower', 'peak-rpm', 'city-mpg', 'highway-mpg',
-          'price']
+          'wheel-base', 'length', 'width', 'height', 'curb-weight',
+          'engine-type', 'number-of-cylinders', 'engine-size', 'feul-system',
+          'bore', 'stroke', 'compression-ration', 'horsepower', 'peak-rpm',
+          'city-mpg', 'highway-mpg', 'price']
 df.columns = header
 
 # data preparation
@@ -28,17 +29,25 @@ df.replace('?', np.NaN, inplace=True)
 df.dropna(axis=0, inplace=True)
 df.reset_index(drop=True, inplace=True)
 df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower', 'peak-rpm']
-   ] = df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower', 'peak-rpm']].astype(float)
+   ] = df[['price', 'normalized-losses', 'bore', 'stroke', 'horsepower',
+           'peak-rpm']].astype(float)
 
 
 # data normalizations.
-df['city-mpg'] = 0.425144*df['city-mpg']  # converts miles per gallon to liter per 100km
+
+# convert miles per gallon to liters per km
+df['city-mpg'] = 0.425144*df['city-mpg']
 df['highway-mpg'] = 0.425144*df['highway-mpg']
 df.rename(columns={'city-mpg': 'city-kpl'}, inplace=True)
 df.rename(columns={'highway-mpg': 'highway-kpl'}, inplace=True)
-df['length'] = (df['length']-df['length'].min())/(df['length'].max()-df['length'].min())
-df['length'] = (df['width']-df['width'].min())/(df['width'].max()-df['width'].min())
-df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'].min())
+
+# min-max normalizations
+df['length'] = (df['length']-df['length'].min()) / \
+    (df['length'].max()-df['length'].min())
+df['length'] = (df['width']-df['width'].min()) / \
+    (df['width'].max()-df['width'].min())
+df['height'] = (df['height']-df['height'].min()) / \
+    (df['height'].max()-df['height'].min())
 
 # data Visualization
 # plt.hist(x=df['price'], bins=3)
@@ -77,5 +86,18 @@ dwdf.rename(columns={'drive-wheels': 'value-counts'}, inplace=True)
 correlationmatrix = df.corr()
 fig, ax = plt.subplots()
 sns.heatmap(correlationmatrix, cmap='RdYlGn_r', ax=ax)
-# path = '/home/ram/Data_science/predict_car_price/figure6.png'
-fig.savefig('./predict_car_price/figure6.png')
+fig.savefig('./assets/figure_6.png')
+
+# Model development
+"""
+Simple, multiple, polynomial linear regression can be used.
+"""
+
+lm = LinearRegression()
+lm.fit(df[["highway-kpl"]], df[['price']])
+
+prd = pd.DataFrame({'kpl': [12]})
+Yhat = lm.predict(prd[["kpl"]])
+print(Yhat)
+print(df['highway-kpl'].head(10))
+print(df['price'].head(10))
