@@ -78,4 +78,4 @@ correlationmatrix = df.corr()
 fig, ax = plt.subplots()
 sns.heatmap(correlationmatrix, cmap='RdYlGn_r', ax=ax)
 # path = '/home/ram/Data_science/predict_car_price/figure6.png'
-fig.savefig('./predict_car_price/figure6.png')
+fig.savefig('./assets/figure_6.png')
