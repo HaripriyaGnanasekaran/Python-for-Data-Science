@@ -16,7 +16,7 @@ Data of used car prices were analyzed using the python script. Below you see a c
 
 A multiple regression techniques will be used to make a prediction of the price. Work in progress...
 
-<img src="https://github.com/RamanathanVaradharajan/Python-for-Data-Science/blob/master/assets/websiteimage.png" alt="Workflow" width="500" height="500">
+<img src="https://ramanathanvaradharajan.files.wordpress.com/2020/02/websiteimage.png" alt="Workflow" width="500" height="500">
 
 ##### More to come in future ....
 
