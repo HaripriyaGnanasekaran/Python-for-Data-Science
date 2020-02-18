@@ -9,6 +9,9 @@ Can we make a model to predict the win and loss percentage based on the shots pl
 
 #### Analytical approach
 Probably we need to combine unsupervised learning with decision tree classification. 
+Combine tools like Linear regression to see correlation and choose the important atribute.
+
+![Linear regression](https://github.com/RamanathanVaradharajan/Python-for-Data-Science/blob/exploratary_stats/predict_car_price/Figure_4.png)
 
 #### More to come in future ....
 
