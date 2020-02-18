@@ -11,7 +11,7 @@ Can we make a model to predict the win and loss percentage based on the shots pl
 Probably we need to combine unsupervised learning with decision tree classification.
 Combine tools like Linear regression to see correlation and choose the important atribute.
 
-![Correlation heatmap](https://github.com/RamanathanVaradharajan/assets/blob/master/predict_car_price/figure6.png)
+![Correlation heatmap](https://github.com/RamanathanVaradharajan/assets/blob/master/predict_car_price/figure_6.png)
 
 #### More to come in future ....
 
