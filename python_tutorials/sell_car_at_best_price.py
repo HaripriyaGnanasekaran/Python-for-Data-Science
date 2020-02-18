@@ -63,9 +63,9 @@ df['height'] = (df['height']-df['height'].min())/(df['height'].max()-df['height'
 # sns.heatmap(dfpiv, cmap='RdBu', annot=True, ax=ax)
 # plt.show()
 
-sns.regplot(x='highway-kpl', y='price', data=df)
-plt.ylim(0,)
-plt.show()
+# sns.regplot(x='highway-kpl', y='price', data=df)
+# plt.ylim(0,)
+# plt.show()
 
 # explorative data analysis
 statistics = df.describe()
@@ -73,3 +73,9 @@ statistics.to_csv('./descriptivestatistics.csv')
 drivewheel = df['drive-wheels'].value_counts()
 dwdf = pd.DataFrame(drivewheel)
 dwdf.rename(columns={'drive-wheels': 'value-counts'}, inplace=True)
+
+correlationmatrix = df.corr()
+fig, ax = plt.subplots()
+sns.heatmap(correlationmatrix, cmap='RdYlGn_r', ax=ax)
+# path = '/home/ram/Data_science/predict_car_price/figure6.png'
+fig.savefig('./predict_car_price/figure6.png')
