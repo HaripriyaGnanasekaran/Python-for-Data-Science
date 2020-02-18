@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import sys
+from sklearn.linear_model import LinearRegression
 
 print(sys.version)
 # import sales car data here.
 
 print("Importing data from the website")
-path = 'https://archive.ics.uci.edu/ml/machine-learning-databases/autos/ \
-        imports-85.data'
+path = 'https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data'
 df = pd.read_csv(path, header=None)
 header = ['symboling', 'normalized-losses', 'make', 'fuel-type', 'aspiration',
           'number-of-doors', 'body-style', 'drive-wheels', 'engine-location',
@@ -86,5 +86,18 @@ dwdf.rename(columns={'drive-wheels': 'value-counts'}, inplace=True)
 correlationmatrix = df.corr()
 fig, ax = plt.subplots()
 sns.heatmap(correlationmatrix, cmap='RdYlGn_r', ax=ax)
-# path = '/home/ram/Data_science/predict_car_price/figure6.png'
 fig.savefig('./assets/figure_6.png')
+
+# Model development
+"""
+Simple, multiple, polynomial linear regression can be used.
+"""
+
+lm = LinearRegression()
+lm.fit(df[["highway-kpl"]], df[['price']])
+
+prd = pd.DataFrame({'kpl': [12]})
+Yhat = lm.predict(prd[["kpl"]])
+print(Yhat)
+print(df['highway-kpl'].head(10))
+print(df['price'].head(10))
