@@ -1,26 +1,23 @@
-While self teaching Data Sciene to myself, I created this repository. As a process I developed many jupyter notebooks as class notes. Some of them are easy to read. Feel free to contribute or edit the mistakes in the notebooks.
+Idea of this repository is to create an machine learning application using Python. 
+Initially many small problems like predicting the price of a car, predicting factors influencing housing price, predicting rate of spread of virus to a specific location etc., will be implemented with a future outlook to create a large scale machine learning implementation. 
 
-# Future of this repository
-In future, all my own works related to machine learning and AI will be deposited here. Dream project is to create a AI coach for badminton men's singles games.
-
-#### Business understanding.
-Can we make an model to predict the necessary shots to be played by a player after analyzing the recorded video until first break?
-Can we make a model to predict the win and loss percentage based on the shots played and increment in win/loss ratio if the advice based on shots are followed?
+#### Future of this repository
+In the large scale implementation, focus is to create an AI Personal Coach (for sports: initially to badminton).
 
 
-#### Current project
-##### Predict the price of car from its attributes.
+#### Current projects
 
-#### Analytical approach
-Data of used car prices were analyzed using the python script. Below you see a correlation heat map showing the important attributes contributing towards the price.
+##### 1. Predict the price of car from its attributes.
+This is the first small scale implementation. This project uses the data from UCI website. Data consists of features of car and the price it was sold in the year of 1985. This analysis will thus not predict the car prices accurately for this year. However, the idea is create a basic framework. Provided with a recent data, the hope is that the small program can predict the car price accurately.
 
-A multiple regression techniques will be used to make a prediction of the price. Work in progress...
+Data of used car prices were analyzed using the python script. Below you see some of the data visualization, normalization techniques used. Both linear and multiple regression models from the Python sklearn (class) linear_model (method) are used. This project is still under developement. Preliminary results are know however. 
 
 <img src="https://ramanathanvaradharajan.files.wordpress.com/2020/02/websiteimage.png" alt="Workflow" width="500" height="500">
 
 ##### More to come in future ....
 
 
-
-Contains:
-* Python tutorials (for applications to Data Science and AI)
+Have fun! 
+Feel free to contribute or comment. 
+You can contact me through
+ramanathan.varadharajan@outlook.com (please use a subject line: Python for data science)
