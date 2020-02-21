@@ -1,5 +1,5 @@
 """
-Inside CarFeatures module.
+Inside car_features module.
 
 In this module we will read the features of the car and return it back to
 different classes, when required.
@@ -7,7 +7,7 @@ different classes, when required.
 import pandas as pd
 
 
-class CarFeatures:
+class file_operations:
     """This is my docstring."""
 
     def __init__(self, path):
@@ -15,11 +15,11 @@ class CarFeatures:
         print('In init')
         self.path = path
 
-    def data(self):
+    def get_data(self):
         """Read from file."""
         df = pd.read_csv(self.path, header=None)
         return df
 
-    def write(self):
+    def put_data(self):
         """Write to a file."""
         self.to_csv('./data.csv')
