@@ -13,6 +13,10 @@ from sklearn.linear_model import LinearRegression
 print(sys.version)
 # import sales car data here.
 
+from .CarFeatures import CarFeatures as car
+df = car.data()
+
+
 print("Importing data from the website")
 path = 'https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data'
 df = pd.read_csv(path, header=None)
