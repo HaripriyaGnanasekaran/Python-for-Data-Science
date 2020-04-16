@@ -2,7 +2,7 @@ Idea of this repository is to create an machine learning application using Pytho
 Initially many small problems like predicting the price of a car, predicting factors influencing housing price, predicting rate of spread of virus to a specific location etc., will be implemented with a future outlook to create a large scale machine learning implementation. 
 
 #### Future of this repository
-In the large scale implementation, focus is to create an AI Personal Coach (for sports: initially to badminton).
+In the large scale implementation, focus is to create an AI Scientific advisor to governmental policies. Other ideas that arise during the developmental phase can replace the motive with a newer, better ones. 
 
 
 #### Current projects
